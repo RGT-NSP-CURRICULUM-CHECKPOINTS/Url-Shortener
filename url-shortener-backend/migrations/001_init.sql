@@ -1,7 +1,3 @@
--- Up Defining schemas: creation of table and indexes
-
-
-
 -- Enable UUID generation
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
@@ -38,17 +34,3 @@ CREATE TABLE IF NOT EXISTS clicks (
 -- Useful indexes
 CREATE INDEX IF NOT EXISTS idx_urls_user_id ON urls(user_id);
 CREATE INDEX IF NOT EXISTS idx_clicks_url_id ON clicks(url_id);
-
-
-
-
-
-
-
-
-
-
-
-
-
-

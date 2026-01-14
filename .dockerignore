@@ -1,0 +1,17 @@
+node_modules
+npm-debug.log
+.env
+.git
+.gitignore
+README.md
+.vscode
+.idea
+*.log
+coverage
+.nyc_output
+dist
+build
+url-shortener-backend/node_modules
+url-shortener-frontend/node_modules
+url-shortener-backend/dist
+url-shortener-frontend/dist

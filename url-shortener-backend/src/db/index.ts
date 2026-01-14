@@ -3,6 +3,7 @@
 // Importing necessary modules
 import { Pool } from "pg";
 import { env } from "../config/env";
+import { runMigrations } from "./migrations";
 
 // Creating a new database connection pool
 export const pool = new Pool({
@@ -20,13 +21,16 @@ pool.on("error", (err) => {
   process.exit(-1);
 });
 
-// Forcing an iniitial connection to verify database connectivity
+// Forcing an iniitial connection to verify database connectivity and run migrations
 
 (async () => {
   try {
     await pool.query("SELECT 1");
     console.log("Database connection verified");
+    
+    // Run migrations
+    await runMigrations();
   } catch (error) {
-    console.error("Database connection failed", error);
+    console.error("Database connection or migration failed", error);
   }
 })();

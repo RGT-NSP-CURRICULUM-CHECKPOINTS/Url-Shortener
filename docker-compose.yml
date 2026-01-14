@@ -1,0 +1,36 @@
+version: "3.9"
+
+services:
+  backend:
+    build:
+      context: ./url-shortener-backend
+    env_file: ./url-shortener-backend/.env
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./url-shortener-frontend
+    env_file: ./url-shortener-frontend/.env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 2guhwg7@code4
+      POSTGRES_DB: url_shortener
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
