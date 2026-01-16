@@ -6,6 +6,7 @@ url-shortener-backend/node_modules/
 .env
 .env.local
 .env.*.local
+.env.example
 
 # Build output
 dist/
