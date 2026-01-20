@@ -2,8 +2,7 @@ version: "3.9"
 
 services:
   backend:
-    build:
-      context: ./url-shortener-backend
+    image: dzivor/url-shortener-backend:latest
     env_file: ./url-shortener-backend/.env
     ports:
       - "5000:5000"
@@ -12,8 +11,7 @@ services:
     restart: unless-stopped
 
   frontend:
-    build:
-      context: ./url-shortener-frontend
+    image: dzivor/url-shortener-frontend:latest
     env_file: ./url-shortener-frontend/.env
     ports:
       - "3000:3000"

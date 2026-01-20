@@ -1,0 +1,43 @@
+name: Frontend CI/CD
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  frontend-ci:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: url-shortener-frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 25
+          cache: npm
+          cache-dependency-path: url-shortener-frontend/package-lock.json
+      - run: npm ci
+      - run: npm run build
+
+  frontend-image:
+    needs: frontend-ci
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./url-shortener-frontend
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_HUB_USERNAME }}/url-shortener-frontend:latest
+            ${{ secrets.DOCKER_HUB_USERNAME }}/url-shortener-frontend:${{ github.sha }}
