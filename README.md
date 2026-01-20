@@ -356,7 +356,7 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 
 **Dzivor Daniel Dodzi**
 
-- GitHub: [@dzv-123456](https://github.com/dzv-123456)
+- GitHub: [@Dzivor](https://github.com/Dzivor)
 - Email: dzivordaniel144@gmail.com
 
 ## 🙏 Acknowledgments
@@ -366,4 +366,4 @@ This project is licensed under the ISC License - see the [LICENSE](LICENSE) file
 - [PostgreSQL](https://www.postgresql.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Vite](https://vitejs.dev/)
-
+- [AlberAmoah](https://github.com/AlbertAmoah)
