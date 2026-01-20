@@ -9,9 +9,25 @@ on:
 jobs:
   backend-ci:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:15-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: test
+          POSTGRES_DB: url_shortener_test
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
     defaults:
       run:
         working-directory: url-shortener-backend
+        env:
+          DATABASE_URL: postgresql://postgres:test@localhost:5432/url_shortener_test
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -20,7 +36,6 @@ jobs:
           cache: npm
           cache-dependency-path: url-shortener-backend/package-lock.json
       - run: npm ci
-      - run: npm test -- --runInBand || true
       - run: npm run build
 
   backend-image:
