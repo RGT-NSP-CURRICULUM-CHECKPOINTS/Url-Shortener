@@ -1,5 +1,5 @@
 # Use a multi-stage build.
-FROM node:25-alpine AS build
+FROM node:18-alpine AS build
 
 # Set the working directory.
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY . .
 RUN npm run build
 
 # Use a lightweight image for serving the application.
-FROM node:25-alpine
+FROM node:18-alpine
 
 # Set the working directory.
 WORKDIR /app
