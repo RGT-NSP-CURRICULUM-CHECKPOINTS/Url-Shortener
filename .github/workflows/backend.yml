@@ -2,9 +2,9 @@ name: Backend CI/CD
 
 on:
   push:
-    branches: [main, dev]
+    branches: [dev, main]
   pull_request:
-    branches: [main, dev]
+    branches: [dev, main]
 
 jobs:
   backend-ci:
@@ -40,7 +40,7 @@ jobs:
 
   backend-image:
     needs: backend-ci
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
