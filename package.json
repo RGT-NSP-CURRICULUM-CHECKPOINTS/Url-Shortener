@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "@sentry/node": "^10.36.0"
+    "@sentry/node": "^10.36.0",
+    "express-rate-limit": "^8.2.1",
+    "typescript": "^5.9.3"
   }
 }
