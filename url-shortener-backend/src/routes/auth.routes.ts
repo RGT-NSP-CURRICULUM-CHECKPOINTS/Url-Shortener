@@ -1,6 +1,8 @@
 import { Router } from "express";
 import rateLimit from "express-rate-limit";
 import { AuthController } from "../controllers/auth.controller";
+import { validate } from "../middleware/validation.middleware";
+import { loginSchema, registerSchema } from "../schemas";
 
 const router = Router();
 
@@ -26,9 +28,11 @@ const registerRateLimiter = rateLimit({
   legacyHeaders: false,
 });
 
-// Register a new user with rate limiting
-router.post("/register", registerRateLimiter, AuthController.register);
-// Login a user with rate limiting
-router.post("/login", loginRateLimiter, AuthController.login);
+// Register a new user with rate limiting and validation
+router.post("/register", registerRateLimiter, validate(registerSchema), AuthController.register);
+
+// Login a user with rate limiting and validation
+router.post("/login", loginRateLimiter, validate(loginSchema), AuthController.login);
 
 export default router;
+

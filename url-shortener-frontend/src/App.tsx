@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Routes, Route, Link, useNavigate, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -73,7 +73,7 @@ const App = () => {
         >
           <div style={{ display: "flex", gap: "1.5rem" }}>
             <Link
-              to="/"
+              to="/dashboard"
               style={{
                 color: "#007bff",
                 fontWeight: "600",
@@ -149,8 +149,10 @@ const App = () => {
         }}
       >
         <Routes>
+          {/* Redirect root to login for unauthenticated users */}
+          <Route path="/" element={<Navigate to="/login" replace />} />
           <Route
-            path="/"
+            path="/dashboard"
             element={
               <PrivateRoute>
                 <Home />
