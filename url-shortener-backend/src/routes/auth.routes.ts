@@ -15,9 +15,19 @@ const loginRateLimiter = rateLimit({
   legacyHeaders: false, 
 });
 
-// Register a new user
-router.post("/register", AuthController.register);
+// Rate limiter for registration attempts: 3 attempts per 15 minutes
+const registerRateLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 3,
+  message: {
+    message: "Too many registration attempts, please try again after 15 minutes",
+  },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
+// Register a new user with rate limiting
+router.post("/register", registerRateLimiter, AuthController.register);
 // Login a user with rate limiting
 router.post("/login", loginRateLimiter, AuthController.login);
 
