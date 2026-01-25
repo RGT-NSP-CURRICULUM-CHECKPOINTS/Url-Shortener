@@ -12,98 +12,47 @@ const Home = () => {
 
   if (!isAuthenticated) {
     return (
-      <div
-        style={{
-          maxWidth: "600px",
-          margin: "3rem auto",
-          padding: "2.5rem",
-          textAlign: "center",
-          backgroundColor: "#f0f4ff",
-          borderRadius: "12px",
-          boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "2rem",
-            color: "#2c3e50",
-            marginBottom: "1rem",
-          }}
-        >
-          Welcome to URL Shortener
-        </h2>
-        <p
-          style={{
-            fontSize: "1.125rem",
-            color: "#555",
-            marginBottom: "2rem",
-          }}
-        >
+      <div className="max-w-xl mx-auto mt-12 p-10 text-center bg-blue-50 rounded-xl shadow-md">
+        <h2 className="text-4xl text-gray-800 mb-4">Welcome to URL Shortener</h2>
+        <p className="text-xl text-gray-600 mb-8">
           Transform your long, complicated URLs into short, shareable links in
           seconds.
         </p>
 
-        <div
-          style={{
-            display: "flex",
-            gap: "1rem",
-            justifyContent: "center",
-            marginBottom: "2rem",
-          }}
-        >
+        <div className="flex gap-4 justify-center mb-8">
           <Link
             to="/register"
-            style={{
-              padding: "0.75rem 2rem",
-              backgroundColor: "#007bff",
-              color: "white",
-              textDecoration: "none",
-              borderRadius: "6px",
-              fontWeight: "600",
-            }}
+            className="px-8 py-3 bg-blue-600 text-white no-underline rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Create Account
           </Link>
           <Link
             to="/login"
-            style={{
-              padding: "0.75rem 2rem",
-              backgroundColor: "#0056b3",
-              color: "white",
-              textDecoration: "none",
-              borderRadius: "6px",
-              fontWeight: "600",
-            }}
+            className="px-8 py-3 bg-blue-800 text-white no-underline rounded-lg font-semibold hover:bg-blue-900 transition-colors"
           >
             Sign In
           </Link>
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gap: "1.5rem",
-          }}
-        >
-          <div style={{ padding: "1rem" }}>
-            <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>⚡</div>
-            <p style={{ color: "#333", fontWeight: "600" }}>Instant</p>
-            <p style={{ fontSize: "0.875rem", color: "#666" }}>
+        <div className="grid grid-cols-3 gap-6">
+          <div className="p-4">
+            <div className="text-4xl mb-2">⚡</div>
+            <p className="text-gray-800 font-semibold">Instant</p>
+            <p className="text-sm text-gray-500">
               Create short URLs instantly
             </p>
           </div>
-          <div style={{ padding: "1rem" }}>
-            <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>📊</div>
-            <p style={{ color: "#333", fontWeight: "600" }}>Analytics</p>
-            <p style={{ fontSize: "0.875rem", color: "#666" }}>
+          <div className="p-4">
+            <div className="text-4xl mb-2">📊</div>
+            <p className="text-gray-800 font-semibold">Analytics</p>
+            <p className="text-sm text-gray-500">
               Track your link clicks
             </p>
           </div>
-          <div style={{ padding: "1rem" }}>
-            <div style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>🔒</div>
-            <p style={{ color: "#333", fontWeight: "600" }}>Secure</p>
-            <p style={{ fontSize: "0.875rem", color: "#666" }}>
+          <div className="p-4">
+            <div className="text-4xl mb-2">🔒</div>
+            <p className="text-gray-800 font-semibold">Secure</p>
+            <p className="text-sm text-gray-500">
               Your data is protected
             </p>
           </div>
@@ -133,33 +82,12 @@ const Home = () => {
   };
 
   return (
-    <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-      <div
-        style={{
-          backgroundColor: "white",
-          borderRadius: "12px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-          padding: "2.5rem",
-          marginBottom: "2rem",
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "2rem",
-            color: "#2c3e50",
-            marginBottom: "0.5rem",
-            textAlign: "center",
-          }}
-        >
+    <div className="max-w-2xl mx-auto">
+      <div className="bg-white rounded-xl shadow-lg p-10 mb-8">
+        <h2 className="text-4xl text-gray-800 mb-2 text-center">
           Shorten Your URL
         </h2>
-        <p
-          style={{
-            textAlign: "center",
-            color: "#666",
-            marginBottom: "2rem",
-          }}
-        >
+        <p className="text-center text-gray-500 mb-8">
           Paste your long URL below and we'll create a short, shareable link
         </p>
 
@@ -170,28 +98,11 @@ const Home = () => {
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
             required
-            style={{
-              width: "100%",
-              padding: "1rem",
-              fontSize: "1rem",
-              border: "2px solid #ddd",
-              borderRadius: "8px",
-              marginBottom: "1rem",
-              boxSizing: "border-box",
-            }}
+            className="w-full p-4 text-lg border-2 border-gray-200 rounded-lg mb-4 box-border focus:outline-none focus:border-blue-500"
           />
 
           {error && (
-            <div
-              style={{
-                padding: "1rem",
-                backgroundColor: "#ffe5e5",
-                border: "2px solid #cc0000",
-                color: "#990000",
-                borderRadius: "6px",
-                marginBottom: "1rem",
-              }}
-            >
+            <div className="p-4 bg-red-100 border-2 border-red-600 text-red-700 rounded-lg mb-4">
               {error}
             </div>
           )}
@@ -199,17 +110,7 @@ const Home = () => {
           <button
             type="submit"
             disabled={loading}
-            style={{
-              width: "100%",
-              padding: "1rem",
-              fontSize: "1rem",
-              fontWeight: "600",
-              color: "white",
-              backgroundColor: loading ? "#999" : "#007bff",
-              border: "none",
-              borderRadius: "8px",
-              cursor: loading ? "not-allowed" : "pointer",
-            }}
+            className="w-full p-4 text-lg font-semibold text-white bg-blue-600 border-0 rounded-lg cursor-pointer hover:bg-blue-700 transition-colors disabled:bg-gray-400"
           >
             {loading ? "Creating Short Link..." : "Shorten URL"}
           </button>
@@ -217,76 +118,32 @@ const Home = () => {
       </div>
 
       {shortUrl && (
-        <div
-          style={{
-            backgroundColor: "#e7f3ff",
-            borderRadius: "12px",
-            padding: "2rem",
-            border: "2px solid #007bff",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "1.25rem",
-              color: "#2c3e50",
-              marginBottom: "1rem",
-            }}
-          >
-            ✓ Success!
-          </h3>
-          <p style={{ color: "#666", marginBottom: "1rem" }}>
+        <div className="bg-blue-100 rounded-xl p-8 border-2 border-blue-500">
+          <h3 className="text-2xl text-gray-800 mb-4">✓ Success!</h3>
+          <p className="text-gray-600 mb-4">
             Your shortened URL is ready to share:
           </p>
 
-          <div
-            style={{
-              backgroundColor: "white",
-              borderRadius: "8px",
-              padding: "1rem",
-              marginBottom: "1.5rem",
-              border: "2px solid #007bff",
-            }}
-          >
-            <div
-              style={{
-                display: "flex",
-                gap: "0.75rem",
-                alignItems: "center",
-                flexWrap: "wrap",
-              }}
-            >
+          <div className="bg-white rounded-lg p-4 mb-6 border-2 border-blue-500">
+            <div className="flex gap-3 items-center flex-wrap">
               <a
                 href={shortUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{
-                  color: "#007bff",
-                  fontSize: "1.125rem",
-                  wordBreak: "break-all",
-                  flex: 1,
-                  textDecoration: "none",
-                }}
+                className="text-blue-600 text-lg break-all flex-1 no-underline hover:underline"
               >
                 {shortUrl}
               </a>
               <button
                 onClick={copyToClipboard}
-                style={{
-                  padding: "0.625rem 1.25rem",
-                  backgroundColor: "#28a745",
-                  color: "white",
-                  border: "none",
-                  borderRadius: "6px",
-                  cursor: "pointer",
-                  fontWeight: "600",
-                }}
+                className="px-5 py-2.5 bg-green-600 text-white border-0 rounded-lg cursor-pointer font-semibold hover:bg-green-700 transition-colors"
               >
                 Copy Link
               </button>
             </div>
           </div>
 
-          <p style={{ fontSize: "0.875rem", color: "#666" }}>
+          <p className="text-sm text-gray-500">
             Share this link anywhere! We'll track clicks and show you analytics.
           </p>
         </div>
@@ -296,3 +153,4 @@ const Home = () => {
 };
 
 export default Home;
+

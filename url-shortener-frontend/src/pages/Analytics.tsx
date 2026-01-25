@@ -30,16 +30,9 @@ const Analytics = () => {
 
   if (loading) {
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "16rem",
-        }}
-      >
-        <div style={{ textAlign: "center" }}>
-          <p style={{ fontSize: "1.125rem", color: "#666" }}>
+      <div className="flex justify-center items-center py-16">
+        <div className="text-center">
+          <p className="text-xl text-gray-500">
             Loading your analytics...
           </p>
         </div>
@@ -48,153 +41,56 @@ const Analytics = () => {
   }
 
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        borderRadius: "12px",
-        boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
-        padding: "2.5rem",
-      }}
-    >
-      <h2
-        style={{
-          fontSize: "2rem",
-          color: "#2c3e50",
-          marginBottom: "0.5rem",
-        }}
-      >
-        URL Analytics
-      </h2>
-      <p
-        style={{
-          color: "#666",
-          marginBottom: "2rem",
-        }}
-      >
+    <div className="bg-white rounded-xl shadow-lg p-10">
+      <h2 className="text-4xl text-gray-800 mb-2">URL Analytics</h2>
+      <p className="text-gray-500 mb-8">
         Track all your shortened URLs and their click counts
       </p>
 
       {error && (
-        <div
-          style={{
-            marginBottom: "1rem",
-            padding: "1rem",
-            backgroundColor: "#ffe5e5",
-            border: "2px solid #cc0000",
-            color: "#990000",
-            borderRadius: "6px",
-          }}
-        >
+        <div className="mb-4 p-4 bg-red-100 border-2 border-red-600 text-red-700 rounded-lg">
           {error}
         </div>
       )}
 
       {data.length === 0 ? (
-        <div
-          style={{
-            textAlign: "center",
-            padding: "4rem 0",
-            backgroundColor: "#f8f9fa",
-            borderRadius: "8px",
-          }}
-        >
-          <p
-            style={{
-              fontSize: "1.5rem",
-              color: "#666",
-              fontWeight: "600",
-              marginBottom: "0.5rem",
-            }}
-          >
+        <div className="text-center py-16 bg-gray-100 rounded-lg">
+          <p className="text-2xl text-gray-600 font-semibold mb-2">
             No URLs Yet
           </p>
-          <p style={{ color: "#999" }}>
+          <p className="text-gray-400">
             Start creating shortened URLs to see your analytics here
           </p>
         </div>
       ) : (
-        <div style={{ overflowX: "auto" }}>
-          <table
-            style={{
-              width: "100%",
-              borderCollapse: "collapse",
-            }}
-          >
+        <div className="overflow-x-auto">
+          <table className="w-full border-collapse">
             <thead>
-              <tr style={{ backgroundColor: "#007bff", color: "white" }}>
-                <th
-                  style={{
-                    padding: "1rem",
-                    textAlign: "left",
-                    fontWeight: "600",
-                  }}
-                >
-                  Short Code
-                </th>
-                <th
-                  style={{
-                    padding: "1rem",
-                    textAlign: "left",
-                    fontWeight: "600",
-                  }}
-                >
-                  Original URL
-                </th>
-                <th
-                  style={{
-                    padding: "1rem",
-                    textAlign: "left",
-                    fontWeight: "600",
-                  }}
-                >
-                  Clicks
-                </th>
-                <th
-                  style={{
-                    padding: "1rem",
-                    textAlign: "left",
-                    fontWeight: "600",
-                  }}
-                >
-                  Action
-                </th>
+              <tr className="bg-blue-600 text-white">
+                <th className="p-4 text-left font-semibold">Short Code</th>
+                <th className="p-4 text-left font-semibold">Original URL</th>
+                <th className="p-4 text-left font-semibold">Clicks</th>
+                <th className="p-4 text-left font-semibold">Action</th>
               </tr>
             </thead>
             <tbody>
               {data.map((url, index) => (
                 <tr
                   key={url.id}
-                  style={{
-                    borderBottom: "1px solid #ddd",
-                    backgroundColor: index % 2 === 0 ? "#f9f9f9" : "white",
-                  }}
+                  className="border-b border-gray-200"
+                  style={{ backgroundColor: index % 2 === 0 ? "#f9f9f9" : "white" }}
                 >
-                  <td style={{ padding: "1rem" }}>
-                    <code
-                      style={{
-                        backgroundColor: "#e0e0e0",
-                        padding: "0.25rem 0.75rem",
-                        borderRadius: "4px",
-                        color: "#007bff",
-                        fontWeight: "600",
-                      }}
-                    >
+                  <td className="p-4">
+                    <code className="bg-gray-200 px-3 py-1 rounded text-blue-600 font-semibold">
                       {url.short_code}
                     </code>
                   </td>
-                  <td
-                    style={{
-                      padding: "1rem",
-                      color: "#333",
-                      wordBreak: "break-all",
-                      maxWidth: "300px",
-                    }}
-                  >
+                  <td className="p-4 text-gray-700 break-all max-w-xs">
                     <a
                       href={url.original_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      style={{ color: "#007bff", textDecoration: "none" }}
+                      className="text-blue-600 no-underline hover:underline"
                       title={url.original_url}
                     >
                       {url.original_url.length > 50
@@ -202,37 +98,19 @@ const Analytics = () => {
                         : url.original_url}
                     </a>
                   </td>
-                  <td style={{ padding: "1rem" }}>
-                    <span
-                      style={{
-                        display: "inline-block",
-                        backgroundColor: "#e3f2fd",
-                        color: "#0056b3",
-                        padding: "0.5rem 1rem",
-                        borderRadius: "999px",
-                        fontWeight: "600",
-                      }}
-                    >
+                  <td className="p-4">
+                    <span className="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-semibold">
                       {url.clicks}
                     </span>
                   </td>
-                  <td style={{ padding: "1rem" }}>
+                  <td className="p-4">
                     <button
                       onClick={() =>
                         navigator.clipboard.writeText(
                           `localhost:5000/${url.short_code}`
                         )
                       }
-                      style={{
-                        padding: "0.5rem 1rem",
-                        backgroundColor: "#28a745",
-                        color: "white",
-                        border: "none",
-                        borderRadius: "6px",
-                        cursor: "pointer",
-                        fontSize: "0.875rem",
-                        fontWeight: "600",
-                      }}
+                      className="px-4 py-2 bg-green-600 text-white border-0 rounded-lg cursor-pointer text-sm font-semibold hover:bg-green-700 transition-colors"
                     >
                       Copy
                     </button>
@@ -242,23 +120,13 @@ const Analytics = () => {
             </tbody>
           </table>
 
-          <div
-            style={{
-              marginTop: "2rem",
-              padding: "1rem",
-              backgroundColor: "#e3f2fd",
-              borderRadius: "8px",
-              border: "2px solid #007bff",
-            }}
-          >
-            <p style={{ color: "#333" }}>
-              <span
-                style={{ fontWeight: "600", color: "#007bff" }}
-              >{`${data.length}`}</span>{" "}
+          <div className="mt-8 p-4 bg-blue-100 rounded-lg border-2 border-blue-500">
+            <p className="text-gray-700">
+              <span className="font-semibold text-blue-600">{data.length}</span>{" "}
               URLs created •{" "}
-              <span
-                style={{ fontWeight: "600", color: "#007bff" }}
-              >{`${data.reduce((sum, url) => sum + url.clicks, 0)}`}</span>{" "}
+              <span className="font-semibold text-blue-600">
+                {data.reduce((sum, url) => sum + url.clicks, 0)}
+              </span>{" "}
               total clicks
             </p>
           </div>
@@ -269,3 +137,4 @@ const Analytics = () => {
 };
 
 export default Analytics;
+
