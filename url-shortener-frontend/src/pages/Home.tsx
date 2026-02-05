@@ -13,7 +13,9 @@ const Home = () => {
   if (!isAuthenticated) {
     return (
       <div className="max-w-xl mx-auto mt-12 p-10 text-center bg-blue-50 rounded-xl shadow-md">
-        <h2 className="text-4xl text-gray-800 mb-4">Welcome to URL Shortener</h2>
+        <h2 className="text-4xl text-gray-800 mb-4">
+          Welcome to URL Shortener
+        </h2>
         <p className="text-xl text-gray-600 mb-8">
           Transform your long, complicated URLs into short, shareable links in
           seconds.
@@ -21,7 +23,7 @@ const Home = () => {
 
         <div className="flex gap-4 justify-center mb-8">
           <Link
-            to="/register"
+            to="/sign-up"
             className="px-8 py-3 bg-blue-600 text-white no-underline rounded-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Create Account
@@ -38,23 +40,17 @@ const Home = () => {
           <div className="p-4">
             <div className="text-4xl mb-2">⚡</div>
             <p className="text-gray-800 font-semibold">Instant</p>
-            <p className="text-sm text-gray-500">
-              Create short URLs instantly
-            </p>
+            <p className="text-sm text-gray-500">Create short URLs instantly</p>
           </div>
           <div className="p-4">
             <div className="text-4xl mb-2">📊</div>
             <p className="text-gray-800 font-semibold">Analytics</p>
-            <p className="text-sm text-gray-500">
-              Track your link clicks
-            </p>
+            <p className="text-sm text-gray-500">Track your link clicks</p>
           </div>
           <div className="p-4">
             <div className="text-4xl mb-2">🔒</div>
             <p className="text-gray-800 font-semibold">Secure</p>
-            <p className="text-sm text-gray-500">
-              Your data is protected
-            </p>
+            <p className="text-sm text-gray-500">Your data is protected</p>
           </div>
         </div>
       </div>
@@ -153,4 +149,3 @@ const Home = () => {
 };
 
 export default Home;
-

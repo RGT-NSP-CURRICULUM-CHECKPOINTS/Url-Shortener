@@ -27,22 +27,65 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-blue-50">
-      <div className="max-w-md w-full bg-white rounded-xl shadow-lg p-10">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl text-gray-800 mb-2">Welcome Back</h2>
-          <p className="text-gray-500">Sign in to your account</p>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#eff6ff",
+      }}
+    >
+      <div
+        style={{
+          maxWidth: "28rem",
+          width: "100%",
+          backgroundColor: "#ffffff",
+          borderRadius: "0.75rem",
+          boxShadow:
+            "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+          padding: "2.5rem",
+        }}
+      >
+        <div style={{ textAlign: "center", marginBottom: "2rem" }}>
+          <h2
+            style={{
+              fontSize: "1.875rem",
+              color: "#1f2937",
+              marginBottom: "0.5rem",
+            }}
+          >
+            Welcome
+          </h2>
+          <p style={{ color: "#6b7280" }}>Sign in to your account</p>
         </div>
 
         {error && (
-          <div className="mb-4 p-4 bg-red-100 border-2 border-red-600 text-red-700 rounded-lg">
+          <div
+            style={{
+              marginBottom: "1rem",
+              padding: "1rem",
+              backgroundColor: "#fee2e2",
+              borderWidth: "2px",
+              borderColor: "#dc2626",
+              color: "#b91c1c",
+              borderRadius: "0.5rem",
+            }}
+          >
             {error}
           </div>
         )}
 
         <form onSubmit={handleLogin}>
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">
+          <div style={{ marginBottom: "1rem" }}>
+            <label
+              style={{
+                display: "block",
+                color: "#374151",
+                fontWeight: "600",
+                marginBottom: "0.5rem",
+              }}
+            >
               Email Address
             </label>
             <input
@@ -51,12 +94,34 @@ const Login = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full p-3 border-2 border-gray-200 rounded-lg text-lg box-border focus:outline-none focus:border-blue-500"
+              style={{
+                width: "100%",
+                padding: "0.75rem",
+                borderWidth: "2px",
+                borderColor: "#e5e7eb",
+                borderRadius: "0.5rem",
+                fontSize: "1.125rem",
+                boxSizing: "border-box",
+                outline: "none",
+              }}
+              onFocus={(e) =>
+                ((e.target as HTMLElement).style.borderColor = "#3b82f6")
+              }
+              onBlur={(e) =>
+                ((e.target as HTMLElement).style.borderColor = "#e5e7eb")
+              }
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-gray-700 font-semibold mb-2">
+          <div style={{ marginBottom: "1rem" }}>
+            <label
+              style={{
+                display: "block",
+                color: "#374151",
+                fontWeight: "600",
+                marginBottom: "0.5rem",
+              }}
+            >
               Password
             </label>
             <input
@@ -65,27 +130,77 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full p-3 border-2 border-gray-200 rounded-lg text-lg box-border focus:outline-none focus:border-blue-500"
+              style={{
+                width: "100%",
+                padding: "0.75rem",
+                borderWidth: "2px",
+                borderColor: "#e5e7eb",
+                borderRadius: "0.5rem",
+                fontSize: "1.125rem",
+                boxSizing: "border-box",
+                outline: "none",
+              }}
+              onFocus={(e) =>
+                ((e.target as HTMLElement).style.borderColor = "#3b82f6")
+              }
+              onBlur={(e) =>
+                ((e.target as HTMLElement).style.borderColor = "#e5e7eb")
+              }
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full p-3 font-semibold text-white bg-blue-600 border-0 rounded-lg cursor-pointer mt-6 hover:bg-blue-700 transition-colors disabled:bg-gray-400"
+            style={{
+              width: "100%",
+              padding: "0.75rem",
+              fontWeight: "600",
+              color: "#ffffff",
+              backgroundColor: loading ? "#9ca3af" : "#2563eb",
+              borderWidth: "0",
+              borderRadius: "0.5rem",
+              cursor: loading ? "not-allowed" : "pointer",
+              marginTop: "1.5rem",
+              transition: "background-color 0.15s ease-in-out",
+            }}
+            onMouseEnter={(e) =>
+              !loading && (e.target.style.backgroundColor = "#1d4ed8")
+            }
+            onMouseLeave={(e) =>
+              !loading && (e.target.style.backgroundColor = "#2563eb")
+            }
           >
             {loading ? "Signing in..." : "Sign In"}
           </button>
         </form>
 
-        <div className="mt-6 pt-6 border-t-2 border-gray-200 text-center">
-          <p className="text-gray-500">
+        <div
+          style={{
+            marginTop: "1.5rem",
+            paddingTop: "1.5rem",
+            borderTopWidth: "2px",
+            borderTopColor: "#e5e7eb",
+            textAlign: "center",
+          }}
+        >
+          <p style={{ color: "#6b7280" }}>
             Don't have an account?{" "}
             <Link
-              to="/register"
-              className="text-blue-600 font-semibold no-underline hover:underline"
+              to="/sign-up"
+              style={{
+                color: "#2563eb",
+                fontWeight: "600",
+                textDecoration: "none",
+              }}
+              onMouseEnter={(e) =>
+                ((e.target as HTMLElement).style.textDecoration = "underline")
+              }
+              onMouseLeave={(e) =>
+                ((e.target as HTMLElement).style.textDecoration = "none")
+              }
             >
-              Register here
+              Sign up here
             </Link>
           </p>
         </div>
@@ -95,4 +210,3 @@ const Login = () => {
 };
 
 export default Login;
-
