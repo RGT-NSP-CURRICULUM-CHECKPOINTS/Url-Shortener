@@ -1,0 +1,190 @@
+/* Analytics Page CSS */
+
+/* Main Container */
+.analytics-container {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  margin-top:2rem;
+}
+
+/* Header */
+.analytics-header {
+  margin-bottom: 0.5rem;
+}
+
+.analytics-title {
+  font-size: 2.25rem;
+  color: #1f2937;
+}
+
+.analytics-subtitle {
+  color: #6b7280;
+  margin-bottom: 2rem;
+}
+
+/* Loading State */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.loading-text {
+  font-size: 1.25rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* Error Alert */
+.error-alert {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #fee2e2;
+  border: 2px solid #dc2626;
+  color: #b91c1c;
+  border-radius: 0.5rem;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 4rem 0;
+  background-color: #f3f4f6;
+  border-radius: 0.5rem;
+}
+
+.empty-state-title {
+  font-size: 1.5rem;
+  color: #4b5563;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-message {
+  color: #9ca3af;
+}
+
+/* Table Section */
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header {
+  background-color: #2563eb;
+  color: white;
+}
+
+.table-header-cell {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.table-row {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table-row:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-cell {
+  padding: 1rem;
+}
+
+.short-code {
+  background-color: #e5e7eb;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  color: #2563eb;
+  font-weight: 600;
+  font-family: monospace;
+}
+
+.original-url {
+  color: #4b5563;
+  word-break: break-all;
+  max-width: 20rem;
+}
+
+.original-url-link {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.original-url-link:hover {
+  text-decoration: underline;
+}
+
+/* Clicks Badge */
+.clicks-badge {
+  display: inline-block;
+  background-color: #dbeafe;
+  color: #1e40af;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+}
+
+/* Copy Button */
+.copy-button {
+  padding: 0.5rem 1rem;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.copy-button:hover {
+  background-color: #15803d;
+}
+
+/* Stats Footer */
+.stats-footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #dbeafe;
+  border-radius: 0.5rem;
+  border: 2px solid #3b82f6;
+}
+
+.stats-text {
+  color: #4b5563;
+}
+
+.stats-highlight {
+  font-weight: 600;
+  color: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .analytics-container {
+    padding: 1.5rem;
+  }
+
+  .analytics-title {
+    font-size: 1.875rem;
+  }
+
+  .table-header-cell,
+  .table-cell {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .original-url {
+    max-width: 12rem;
+  }
+}

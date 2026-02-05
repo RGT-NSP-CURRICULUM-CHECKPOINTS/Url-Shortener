@@ -1,0 +1,154 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f4ff;
+  padding: 2rem 1rem;
+}
+
+.register-card {
+  max-width: 400px;
+  width: 100%;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  padding: 2.5rem;
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.register-title {
+  font-size: 1.875rem;
+  color: #2c3e50;
+  margin: 0 0 0.5rem 0;
+}
+
+.register-subtitle {
+  color: #666;
+  margin: 0;
+}
+
+.error-message {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background-color: #ffe5e5;
+  border: 2px solid #cc0000;
+  color: #990000;
+  border-radius: 6px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  display: block;
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.input-with-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-toggle .form-input {
+  padding-right: 4.5rem;
+}
+
+.toggle-button {
+  position: absolute;
+  right: 0.75rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #007bff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-button:hover {
+  color: #0056b3;
+}
+
+.toggle-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.password-rules {
+  list-style: none;
+  padding: 0.5rem 0 0 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.rule-ok {
+  color: #15803d;
+}
+
+.rule-bad {
+  color: #b91c1c;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 0.75rem;
+  font-weight: 600;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.submit-button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.divider {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #ddd;
+  text-align: center;
+}
+
+.divider-text {
+  color: #666;
+  margin: 0;
+}
+
+.login-link {
+  color: #007bff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
