@@ -1,4 +1,3 @@
-
 import express from "express";
 import authRoutes from "./routes/auth.routes";
 import cors from "cors";
@@ -13,7 +12,7 @@ app.use(
     origin: [
       "http://url-shortener-frontend-dzv-123456.s3-website-us-east-1.amazonaws.com",
       "http://localhost:5173",
-      "http://44.223.27.214:3000",
+      "https://url-shortener-1-eyte.onrender.com",
     ],
     credentials: true,
   }),
